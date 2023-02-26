@@ -1,36 +1,59 @@
 <template>
     <div class="login-container">
-        <el-form ref="formRef" :model="form" class="login-form" >
+        <el-form ref="formRef" :model="form" class="login-form" :rules="rules">
             <div class="title-container">
                 <h3 class="title">用户登录</h3>
             </div>
 
-            <el-form-item >
+            <el-form-item prop="name">
                 <!-- <el-icon :size="20" class="svg-container">
                     <Edit />
                 </el-icon> -->
                 <svg-icon icon="user" class="svg-container"></svg-icon>
                 <el-input v-model="form.name" />
             </el-form-item>
-            <el-form-item >
+            <el-form-item prop="password">
                 <!-- <el-icon :size="20" class="svg-container">
                     <Edit />
                 </el-icon> -->
                 <svg-icon icon="password" class="svg-container"></svg-icon>
                 <el-input v-model="form.password" />
             </el-form-item>
-            <el-button type="primary" class="login-button">登录</el-button>
+            <el-button type="primary" class="login-button" @click="handleLogin">登录</el-button>
         </el-form>
     </div>
 </template>
 
 <script setup>
 import {ref} from 'vue'
-import {Edit} from '@element-plus/icons-vue'
+// import {Edit} from '@element-plus/icons-vue'
 const form = ref({
     name:'',
     password:'',
 })
+
+const rules = ref({
+    name:[
+        { required: true, message: 'Please input Activity name', trigger: 'blur' },
+        { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
+    ],
+    password:[
+        { required: true, message: 'Please input Activity name', trigger: 'blur' },
+        { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
+    ],
+})
+
+const formRef = ref(null)
+const handleLogin = ()=>{
+    formRef.value.validate( valid=>{
+        if(valid){
+            console.log('ok')
+        }else{
+            console.log('err')
+            return false
+        }
+    } )
+}
 </script>
 
 
