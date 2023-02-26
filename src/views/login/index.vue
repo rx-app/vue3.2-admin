@@ -5,12 +5,12 @@
                 <h3 class="title">用户登录</h3>
             </div>
 
-            <el-form-item prop="name">
+            <el-form-item prop="username">
                 <!-- <el-icon :size="20" class="svg-container">
                     <Edit />
                 </el-icon> -->
                 <svg-icon icon="user" class="svg-container"></svg-icon>
-                <el-input v-model="form.name" />
+                <el-input v-model="form.username" />
             </el-form-item>
             <el-form-item prop="password">
                 <!-- <el-icon :size="20" class="svg-container">
@@ -26,27 +26,35 @@
 
 <script setup>
 import {ref} from 'vue'
+import {login} from '@/api/login'
 // import {Edit} from '@element-plus/icons-vue'
 const form = ref({
-    name:'',
+    username:'',
     password:'',
 })
 
 const rules = ref({
-    name:[
-        { required: true, message: 'Please input Activity name', trigger: 'blur' },
-        { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
+    username: [
+        {
+            required: true,
+            message: 'Please input Activity name',
+            trigger: 'blur'
+        }
     ],
-    password:[
-        { required: true, message: 'Please input Activity name', trigger: 'blur' },
-        { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
-    ],
+    password: [
+        {
+            required: true,
+            message: 'Please input Activity name',
+            trigger: 'blur'
+        }
+    ]
 })
 
 const formRef = ref(null)
 const handleLogin = ()=>{
-    formRef.value.validate( valid=>{
+    formRef.value.validate(async valid=>{
         if(valid){
+            await login(form.value)
             console.log('ok')
         }else{
             console.log('err')
