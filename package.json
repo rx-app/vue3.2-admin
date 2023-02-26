@@ -23,6 +23,7 @@
     "cz-customizable": "^6.3.0",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
+    "svg-sprite-loader": "^6.0.9",
     "unplugin-auto-import": "^0.15.0",
     "unplugin-vue-components": "^0.24.0"
   }
