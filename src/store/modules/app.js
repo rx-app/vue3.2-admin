@@ -7,15 +7,16 @@ export default{
         token:localStorage.getItem('token') || ''
     },
     mutations: {
-        setToken(sate,token){
+        setToken(state,token){
             state.token = token
-            localStorage.setItem('token')
+            localStorage.setItem('token',token)
         }
     },
     actions: {
         login( {commit},userInfo ){
             return new Promise( (resolve,reject)=>{
                 loginApi(userInfo).then(res=>{
+                    console.log('res',res)
                     commit('setToken',res.token)
                     router.replace('/')
                     resolve()
