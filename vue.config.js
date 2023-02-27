@@ -79,4 +79,16 @@ module.exports = {
       }
     }
   },
+  css: {
+    loaderOptions: {
+      sass: {
+        // additionalData: 或 prependData
+        prependData:   // 8版本用prependData: (sass-loader的版本)
+        `
+          @import "@/styles/variables.scss";  // scss文件地址
+          @import "@/styles/mixin.scss";     // scss文件地址
+        `
+      }
+    }
+  },
 }
