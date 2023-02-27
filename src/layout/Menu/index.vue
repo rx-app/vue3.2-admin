@@ -9,6 +9,7 @@
         @close="handleClose"
         unique-opened
         router
+        :collapse="!$store.state.app.siderType"
       >
         <el-sub-menu :key="item.id" :index="item.id" v-for="(item,index) in menusList">
           <template #title>
@@ -30,7 +31,7 @@
 
 <script setup>
 import {menuList} from '@/api/menu'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import variables from '@/styles/variables.scss'
 
 const iconList = ['user','setting','shop','tickets','pie-chart']

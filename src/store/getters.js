@@ -5,4 +5,5 @@ export default {
         console.log(r)
        return state.app.token
     },
+    siderType:state=>state.app.siderType
 }

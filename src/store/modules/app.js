@@ -4,10 +4,10 @@ import { setTokenTime } from '@/utils/auth'
 
 export default{
     namespaced:true,
-    state:()=> {
-        
+    state:()=> { 
        return{
-        token:localStorage.getItem('token') || ''
+        token:localStorage.getItem('token') || '',
+        siderType:true,
        } 
     },
     mutations: {
@@ -19,6 +19,9 @@ export default{
         clearToken(state){
             state.token = ''
             localStorage.setItem('token','')
+        },
+        changesiderType(state){
+            state.siderType = !state.siderType
         }
     },
     actions: {
