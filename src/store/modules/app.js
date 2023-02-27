@@ -1,5 +1,6 @@
 import {login as loginApi} from '@/api/login'
 import router from '@/router'
+import { setTokenTime } from '@/utils/auth'
 
 export default{
     namespaced:true,
@@ -13,6 +14,11 @@ export default{
         setToken(state,token){
             state.token = token
             localStorage.setItem('token',token)
+            setTokenTime()
+        },
+        clearToken(state){
+            state.token = ''
+            localStorage.setItem('token','')
         }
     },
     actions: {
@@ -27,6 +33,9 @@ export default{
                     reject(err)
                 })
             } )
+        },
+        logout({commit},userInfo){
+            co
         }
     },
 }
