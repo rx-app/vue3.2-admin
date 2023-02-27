@@ -3,6 +3,9 @@ import router from './index'
 
 const whiteList = ['/login']
 router.beforeEach( (to,from,next)=>{
+    
+    let r = store.getters.token
+    console.log(r)
     if(store.getters.token){
         if(to.path === 'login'){
             next('/')

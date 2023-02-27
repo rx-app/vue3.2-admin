@@ -1,3 +1,8 @@
 export default {
-    token: state=>state.app.token
+    token: (state) => {
+        
+        let r = state.app.token
+        console.log(r)
+       return state.app.token
+    },
 }
