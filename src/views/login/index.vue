@@ -1,38 +1,38 @@
 <template>
-    <div class="login-container">
-        <el-form ref="formRef" :model="form" class="login-form" >
-            <div class="title-container">
-                <h3 class="title">用户登录</h3>
-            </div>
+  <div class="login-container">
+    <el-form ref="formRef" :model="form" class="login-form">
+      <div class="title-container">
+        <h3 class="title">用户登录</h3>
+      </div>
 
-            <el-form-item >
-                <!-- <el-icon :size="20" class="svg-container">
+      <el-form-item>
+        <!-- <el-icon :size="20" class="svg-container">
                     <Edit />
                 </el-icon> -->
-                <svg-icon icon="user" class="svg-container"></svg-icon>
-                <el-input v-model="form.name" />
-            </el-form-item>
-            <el-form-item >
-                <!-- <el-icon :size="20" class="svg-container">
+        <svg-icon icon="user" class="svg-container"></svg-icon>
+        <el-input v-model="form.name" />
+      </el-form-item>
+      <el-form-item>
+        <!-- <el-icon :size="20" class="svg-container">
                     <Edit />
                 </el-icon> -->
-                <svg-icon icon="password" class="svg-container"></svg-icon>
-                <el-input v-model="form.password" />
-            </el-form-item>
-            <el-button type="primary" class="login-button">登录</el-button>
-        </el-form>
-    </div>
+        <svg-icon icon="password" class="svg-container"></svg-icon>
+        <el-input v-model="form.password" />
+      </el-form-item>
+
+      <el-button type="primary" class="login-button">登录</el-button>
+    </el-form>
+  </div>
 </template>
 
 <script setup>
-import {ref} from 'vue'
-import {Edit} from '@element-plus/icons-vue'
+import { ref } from 'vue'
+import { Edit } from '@element-plus/icons-vue'
 const form = ref({
-    name:'',
-    password:'',
+  name: '',
+  password: ''
 })
 </script>
-
 
 <style lang="scss" scoped>
 $bg: #2d3a4b;
@@ -77,6 +77,7 @@ $cursor: #fff;
         caret-color: $cursor;
       }
     }
+
     .login-button {
       width: 100%;
       box-sizing: border-box;
